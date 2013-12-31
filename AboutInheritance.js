@@ -69,9 +69,9 @@ console.log(this.astronaut2.hobby);
 // });
 
 // http://javascript.crockford.com/prototypal.html
-Object.prototype.beget = function () {
+Object.prototype.beget = function (o) {
   function F() {}
-  F.prototype = this;
+  F.prototype = o;
   return new F();
 }
 
@@ -84,8 +84,9 @@ function Gonzo(age, hobby, trick) {
   }
 }
 
-function Hacker(age, hobby, hack) {
+function Hacker(age, hobby, hack, mood) {
 	Muppet.call(this, age, hobby);
+	SwedishChef.call(this, age, hobby, mood);
 	this.hack = hack;
 	this.doHack = function(){
 		return this.hack+" hacking";
@@ -100,11 +101,13 @@ Hacker.prototype = Muppet.prototype.beget();
 
 this.hacker = new Hacker(25, "always testing" , "koans");
 otherHacker = new Hacker(15, "genius", "facebook");
+moodyHacker = new Hacker(22, "debugging", "koans", "sad");
 
 console.log(this.hacker.hobby);
 console.log(this.hacker.doHack());
 console.log(otherHacker.doHack());
 console.log(otherHacker.age+" year old "+otherHacker.hobby);
+console.log(moodyHacker.mood);
 
 // describe("About Crockford's inheritance improvement", function() {
   // beforeEach(function(){
