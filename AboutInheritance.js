@@ -35,6 +35,12 @@ this.swedishChef = new SwedishChef(2, "cooking", "chillin");
 this.astronaut = new Astronaut(22,"spacewalking", "chillin");
 this.astronaut2 = new Astronaut(42,"music", "chillin");
 
+muppet2 = new Muppet(222, "not coding");
+muppet2.hobby = "coding";
+
+console.log(muppet2.hobby);
+
+
 console.log(this.swedishChef.cook());
 
 console.log(this.astronaut.answerNanny());
@@ -102,6 +108,9 @@ Hacker.prototype = Muppet.prototype.beget();
 this.hacker = new Hacker(25, "always testing" , "koans");
 otherHacker = new Hacker(15, "genius", "facebook");
 moodyHacker = new Hacker(22, "debugging", "koans", "sad");
+
+
+moodyHacker.mood = "happy";
 
 console.log(this.hacker.hobby);
 console.log(this.hacker.doHack());
